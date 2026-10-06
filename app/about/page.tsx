@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SkillSphere } from "@/components/SkillSphere";
 import { PersonJsonLd } from "@/components/PersonJsonLd";
 import { site } from "@/content/site";
 
@@ -57,7 +58,8 @@ export default function About() {
       </section>
 
       <section className="container-x pb-24" aria-labelledby="skills-h">
-        <h2 id="skills-h" className="display-2 mb-10">Skills &amp; tools</h2>
+        <h2 id="skills-h" className="display-2 mb-4">Skills &amp; tools</h2>
+        <SkillSphere />
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {Object.entries(site.skills).map(([group, items]) => (
             <div key={group}>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Backdrop3D } from "@/components/Backdrop3D";
 import { services } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -9,11 +10,16 @@ export const metadata: Metadata = {
 
 export default function Services() {
   return (
-    <section className="section container-x pt-16">
-      <h1 className="display-hero">Services</h1>
-      <p className="mt-6 max-w-xl text-lg text-muted">Ways we can work together.</p>
-
-      <div className="mt-16 divide-y divide-line border-y border-line">
+    <>
+    <div className="relative isolate overflow-hidden">
+      <Backdrop3D variant="rings" />
+      <header className="container-x pt-16 pb-6">
+        <h1 className="display-hero">Services</h1>
+        <p className="mt-6 max-w-xl text-lg text-muted">Ways we can work together.</p>
+      </header>
+    </div>
+    <section className="container-x pb-24">
+      <div className="mt-10 divide-y divide-line border-y border-line">
         {services.map((s) => (
           <article key={s.slug} id={s.slug} className="scroll-mt-24 grid gap-8 py-14 md:grid-cols-[1fr_2fr]">
             <div>
@@ -43,5 +49,6 @@ export default function Services() {
         ))}
       </div>
     </section>
+    </>
   );
 }

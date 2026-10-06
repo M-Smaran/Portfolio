@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Project } from "@/content/projects";
+import { Tilt } from "./Tilt";
 
 export function ProjectCard({ project, priority = false }: { project: Project; priority?: boolean }) {
   const { title, slug, tagline, tags, cover, videoDesktop, videoMobile, hue } = project;
   return (
     <Link href={`/work/${slug}`} className="group block">
+      <Tilt>
       <div
         className="relative aspect-[16/10] overflow-hidden rounded-[var(--radius)] border border-line"
         style={{
@@ -45,6 +47,7 @@ export function ProjectCard({ project, priority = false }: { project: Project; p
           )}
         </div>
       </div>
+      </Tilt>
 
       <div className="mt-5 flex items-start justify-between gap-4">
         <div>

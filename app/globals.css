@@ -84,3 +84,30 @@ h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.03em; line-hei
   .marquee-dup { display: none; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
+
+/* 3D skill sphere */
+.skill-sphere-stage {
+  --sphere-r: 170px;
+  perspective: 900px;
+  height: 420px;
+  display: grid;
+  place-items: center;
+}
+@media (min-width: 768px) { .skill-sphere-stage { --sphere-r: 230px; height: 540px; } }
+.skill-sphere {
+  position: relative; width: 0; height: 0; transform-style: preserve-3d;
+  animation: sphere-spin 40s linear infinite;
+}
+.skill-sphere-stage:hover .skill-sphere { animation-play-state: paused; }
+.skill-sphere-item {
+  position: absolute; left: 0; top: 0; translate: -50% -50%;
+  backface-visibility: hidden; white-space: nowrap;
+  font-size: 0.95rem; padding: 4px 12px; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--bg-elevated); color: var(--text);
+}
+@keyframes sphere-spin { from { transform: rotateX(-12deg) rotateY(0); } to { transform: rotateX(-12deg) rotateY(360deg); } }
+.skill-sphere-fallback { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .skill-sphere-stage { display: none; }
+  .skill-sphere-fallback { display: flex; }
+}

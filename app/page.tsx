@@ -6,6 +6,7 @@ import { ProcessList } from "@/components/ProcessList";
 import { ServiceCard } from "@/components/ServiceCard";
 import { PersonJsonLd } from "@/components/PersonJsonLd";
 import { Reveal } from "@/components/Reveal";
+import { Backdrop3D } from "@/components/Backdrop3D";
 import { projects } from "@/content/projects";
 import { services, site } from "@/content/site";
 
@@ -44,12 +45,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section container-x text-center">
-        <Reveal>
-          <h2 className="display-2 mx-auto max-w-3xl">{site.ctaHeadline}</h2>
-          <Link href={site.scheduler} className="btn btn-primary mt-10">Book a free call</Link>
-        </Reveal>
-      </section>
+      <div className="relative isolate overflow-hidden">
+        <Backdrop3D variant="knot" className="inset-x-0 w-full opacity-40 md:opacity-70" />
+        <section className="section container-x text-center">
+          <Reveal>
+            <h2 className="display-2 mx-auto max-w-3xl">{site.ctaHeadline}</h2>
+            <Link href={site.scheduler} className="btn btn-primary mt-10">Book a free call</Link>
+          </Reveal>
+        </section>
+      </div>
     </>
   );
 }

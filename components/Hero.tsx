@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/content/site";
+import { HeroBackdrop } from "./HeroBackdrop";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -10,6 +11,8 @@ export function Hero() {
   const words = site.headline.split(" ");
 
   return (
+    <div className="relative isolate overflow-hidden">
+      <HeroBackdrop />
     <section className="section container-x pt-20 md:pt-32">
       <p className="mb-6 text-sm uppercase tracking-widest text-muted">
         {site.role} · {site.specialty}
@@ -47,5 +50,6 @@ export function Hero() {
         </div>
       </motion.div>
     </section>
+    </div>
   );
 }
